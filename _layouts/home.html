@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% include head.html %}
+</head>
+<body>
+
+<div class="grid">
+        <div class="grid__item one-whole "><!--
+     --><header class="header header--home">
+            <img src="images/avatar01.jpg" alt="" class=" avatar"/>
+            <hgroup class="header__group">
+                <h1 class="hN alpha">Steve Heyes <span class="delta">.co.uk</span></h1>
+                <h2 class="hN epsilon">A blog about my adventures in web development</h2>
+            </hgroup>
+            {% include nav.html %}
+        </header>
+    </div><!--
+ --><div class="grid__item two-thirds push--one-sixth">
+        {{ content }}
+        <!-- <p class="milli"><a href="#">See the archive</a></p> -->
+    </div>
+</div>
+
+{% include footer.html %}
+
+</body>
+</html>
