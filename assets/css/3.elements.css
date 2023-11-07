@@ -1,0 +1,177 @@
+blockquote,
+body,
+dd,
+dl,
+fieldset,
+figure,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+legend,
+ol,
+p,
+pre,
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+address,
+blockquote,
+dl,
+fieldset,
+figure,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+ol,
+p,
+pre,
+table,
+ul {
+  margin-bottom: 32px;
+}
+dd,
+ol,
+ul {
+  margin-left: 32px;
+}
+
+html {
+  font-size: 0.875em;
+  line-height: 1.77778;
+  overflow-y: scroll;
+  min-height: 100%;
+  box-sizing: border-box;
+}
+
+*,
+:after,
+:before {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: "Atkinson Hyperlegible", sans-serif;
+  padding-top: 40px;
+}
+
+h1 {
+  font-size: 28px;
+  font-size: 1.55556rem;
+  line-height: 1.42857;
+}
+
+h2 {
+  font-size: 24px;
+  font-size: 1.33333rem;
+  line-height: 1.33333;
+}
+
+h3 {
+  font-size: 20px;
+  font-size: 1.11111rem;
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+h4 {
+  font-size: 18px;
+  font-size: 1rem;
+  line-height: 1.77778;
+  margin-bottom: 0;
+}
+
+h5 {
+  font-size: 16px;
+  font-size: 0.88889rem;
+  line-height: 1.5;
+  margin-bottom: 0;
+}
+
+h6 {
+  font-size: 14px;
+  font-size: 0.77778rem;
+  line-height: 1.71429;
+}
+
+a {
+  color: var(--black);
+  text-decoration: none;
+  background-image: linear-gradient(var(--primary), var(--primary));
+  background-size: 1px 1px;
+  background-repeat: repeat-x;
+  background-position: 0% 100%;
+  padding-bottom: 1px;
+  transition-property: background-size;
+  transition-duration: 0.175s;
+  transition-timing-function: ease;
+
+  &:hover {
+    background-size: 2px 0.45em;
+  }
+}
+
+a.u-huge {
+  background-size: 1px 8px;
+  display: inline-block;
+  background-position: 0% 95%;
+}
+
+a.u-huge:hover {
+  background-size: 1px 32px;
+}
+
+.o-section {
+  clear: both;
+}
+
+.o-section:after {
+  content: "" !important;
+  display: block !important;
+  clear: both !important;
+}
+
+.u-huge {
+  font-weight: 700;
+  font-size: 72px !important;
+  font-size: 4rem !important;
+  line-height: 1.11111 !important;
+  padding-bottom: 4px;
+}
+
+@media (min-width: 641px) {
+  html {
+    font-size: 1em;
+  }
+}
+
+@media (min-width: 990px) {
+  html {
+    font-size: 1.375em;
+  }
+}
+
+@media only screen and (min-width: 1100px) {
+  .o-typography {
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    ol,
+    ul,
+    blockquote {
+      width: 80.90170011%;
+      margin-left: 19.0982999%;
+    }
+  }
+}
