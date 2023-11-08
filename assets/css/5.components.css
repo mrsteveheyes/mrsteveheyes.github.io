@@ -1,0 +1,78 @@
+a.u-huge {
+  background-size: 1px 8px;
+  background-repeat: repeat-x;
+  display: inline-block;
+  background-position: 0% 95%;
+}
+
+.u-huge {
+  font-weight: 700;
+  padding-bottom: 4px;
+  font-size: 4rem !important;
+  line-height: 1.11111 !important;
+}
+
+.u-emoji {
+  position: relative;
+}
+
+.u-emoji::before {
+  font-size: 1.5rem;
+  position: absolute;
+  left: -36px;
+}
+
+.u-emoji--small::before {
+  font-size: 1rem;
+  left: -28px;
+  top: -4px;
+}
+
+.u-emoji--wave::before {
+  content: "👋";
+}
+
+.u-emoji--handshake::before {
+  content: "🤝";
+  top: -6px;
+}
+
+.u-emoji--man::before {
+  content: "🙋🏼‍♂️";
+}
+
+.u-emoji--dart::before {
+  content: "🎯";
+}
+
+.u-emoji--thinking::before {
+  content: "🤔";
+}
+
+.u-emoji--laptop::before {
+  content: "👨🏼‍💻";
+}
+
+.u-emoji--education::before {
+  content: "👨🏼‍🎓";
+}
+
+.avatar {
+  padding: 4px;
+  border: 4px solid #e8e1df;
+  border-radius: 300px;
+  max-width: 263px;
+  margin-right: 64px;
+  margin-bottom: 2em;
+
+  img {
+    display: block;
+    width: 100%;
+  }
+}
+
+@media (min-width: 990px) {
+  .avatar {
+    margin-right: 0;
+  }
+}
