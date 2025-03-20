@@ -1,0 +1,226 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            text-align: center;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        #timer {
+            font-size: 60px;
+            margin: 20px 0;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .settings {
+            margin: 15px 0;
+            font-size: 16px;
+        }
+
+        .settings input {
+            margin: 0 5px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 15px;
+        }
+
+        button {
+            padding: 12px 24px;
+            font-size: 18px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        #startBtn {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        #startBtn:hover {
+            background-color: #45a049;
+        }
+
+        #stopBtn {
+            background-color: #f44336;
+            color: white;
+        }
+
+        #stopBtn:hover {
+            background-color: #d32f2f;
+        }
+
+        #stopBtn:disabled,
+        #startBtn:disabled,
+        input:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+
+        .status {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #666;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Timer</h1>
+        <div id="timer">00:00</div>
+        <div class="settings">
+            <label for="beepInterval">Beep every: </label>
+            <input type="number" id="beepInterval" min="1" max="300" value="22" style="width: 60px;"> seconds
+        </div>
+        <div class="buttons">
+            <button id="startBtn">Start</button>
+            <button id="stopBtn" disabled>Stop</button>
+        </div>
+        <div class="status" id="status"></div>
+    </div>
+
+    <script>
+        // Elements
+        const timerElement = document.getElementById('timer');
+        const startBtn = document.getElementById('startBtn');
+        const stopBtn = document.getElementById('stopBtn');
+        const statusElement = document.getElementById('status');
+        const beepIntervalInput = document.getElementById('beepInterval');
+
+        // Variables
+        let startTime;
+        let elapsedTime = 0;
+        let timerInterval;
+        let beepInterval;
+        let nextBeepTime = 22000; // 22 seconds in milliseconds
+        let beepSound;
+
+        // Format time (milliseconds) to MM:SS
+        function formatTime(milliseconds) {
+            let seconds = Math.floor(milliseconds / 1000);
+            let minutes = Math.floor(seconds / 60);
+
+            seconds = seconds % 60;
+
+            return `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+        }
+
+        // Create a beep function using AudioContext
+        function createBeep() {
+            // Create a new audio context - this must be triggered by user interaction
+            const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+
+            return function playBeep() {
+                // Create oscillator for the beep
+                const oscillator = audioContext.createOscillator();
+                const gainNode = audioContext.createGain();
+
+                // Set oscillator type and frequency for a clear beep sound
+                oscillator.type = 'sine';
+                oscillator.frequency.setValueAtTime(800, audioContext.currentTime);
+
+                // Connect oscillator to gain node and gain node to destination
+                oscillator.connect(gainNode);
+                gainNode.connect(audioContext.destination);
+
+                // Set volume
+                gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+
+                // Start and stop the beep
+                oscillator.start(audioContext.currentTime);
+                oscillator.stop(audioContext.currentTime + 0.2);
+
+                // Add visual indicator
+                statusElement.textContent = `Beep at ${formatTime(elapsedTime)}`;
+                statusElement.style.color = '#ff6600';
+                setTimeout(() => {
+                    statusElement.style.color = '#666';
+                }, 500);
+            };
+        }
+
+        // Start the timer
+        function startTimer() {
+            startBtn.disabled = true;
+            stopBtn.disabled = false;
+            beepIntervalInput.disabled = true;
+
+            // Get custom beep interval from input
+            const customBeepInterval = parseInt(beepIntervalInput.value) || 22;
+            const beepIntervalMs = customBeepInterval * 1000;
+
+            // Initialize the beep function (must be triggered by user interaction)
+            if (!beepSound) {
+                beepSound = createBeep();
+            }
+
+            startTime = Date.now() - elapsedTime;
+
+            // Update timer display every 10ms for smooth display
+            timerInterval = setInterval(function () {
+                elapsedTime = Date.now() - startTime;
+                timerElement.textContent = formatTime(elapsedTime);
+            }, 10);
+
+            // Set up beep interval
+            nextBeepTime = beepIntervalMs; // Use custom interval
+            beepInterval = setInterval(function () {
+                const currentElapsed = Date.now() - startTime;
+
+                if (currentElapsed >= nextBeepTime) {
+                    // Play beep sound
+                    beepSound();
+
+                    // Log beep to console (helpful for debugging)
+                    console.log(`Beep at ${formatTime(currentElapsed)}`);
+
+                    // Schedule next beep
+                    nextBeepTime += beepIntervalMs;
+                }
+            }, 100); // Check every 100ms for beep threshold
+        }
+
+        // Stop the timer
+        function stopTimer() {
+            startBtn.disabled = false;
+            stopBtn.disabled = true;
+            beepIntervalInput.disabled = false;
+
+            clearInterval(timerInterval);
+            clearInterval(beepInterval);
+        }
+
+        // Event listeners
+        startBtn.addEventListener('click', startTimer);
+        stopBtn.addEventListener('click', stopTimer);
+    </script>
+</body>
+
+</html>
