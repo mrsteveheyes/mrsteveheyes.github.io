@@ -40,6 +40,7 @@
             padding: 5px;
             border: 1px solid #ccc;
             border-radius: 4px;
+            font-size: 1rem;
         }
 
         .buttons {
@@ -182,6 +183,7 @@
             }
 
             startTime = Date.now() - elapsedTime;
+            nextBeepTime = startTime + beepIntervalMs; // Set first beep time relative to start
 
             // Update timer display every 10ms for smooth display
             timerInterval = setInterval(function () {
@@ -190,16 +192,14 @@
             }, 10);
 
             // Set up beep interval
-            nextBeepTime = beepIntervalMs; // Use custom interval
             beepInterval = setInterval(function () {
-                const currentElapsed = Date.now() - startTime;
-
-                if (currentElapsed >= nextBeepTime) {
+                const currentTime = Date.now();
+                if (currentTime >= nextBeepTime) {
                     // Play beep sound
                     beepSound();
 
                     // Log beep to console (helpful for debugging)
-                    console.log(`Beep at ${formatTime(currentElapsed)}`);
+                    console.log(`Beep at ${formatTime(currentTime - startTime)}`);
 
                     // Schedule next beep
                     nextBeepTime += beepIntervalMs;
