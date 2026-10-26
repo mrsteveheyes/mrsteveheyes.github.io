@@ -1,0 +1,16 @@
+---
+import Base from './Base.astro';
+
+const { title, date } = Astro.props;
+// Dates are parsed as UTC midnight, so format in UTC to keep the same day.
+const formattedDate = date.toLocaleDateString('en-GB', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+  timeZone: 'UTC',
+});
+---
+<Base heading={title}>
+  <p><time datetime={date.toISOString().slice(0, 10)}>{formattedDate}</time></p>
+  <slot />
+</Base>

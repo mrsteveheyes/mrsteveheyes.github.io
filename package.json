@@ -1,0 +1,17 @@
+{
+  "name": "mrsteveheyes.github.io",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "astro": "^7.4.2"
+  },
+  "engines": {
+    "node": ">=24.9.0 <25"
+  },
+  "packageManager": "pnpm@10.22.0"
+}
