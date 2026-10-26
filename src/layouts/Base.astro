@@ -1,4 +1,6 @@
 ---
+import { buildVersion } from '../build-version';
+
 // Markdown pages pass their frontmatter; other layouts pass props directly.
 const { heading, emoji } = Astro.props.frontmatter ?? Astro.props;
 const headingClass = emoji ? `c-intro u-emoji u-emoji--${emoji}` : 'c-intro';
@@ -9,6 +11,10 @@ const navItems = [
   { href: '/uses/', label: 'Uses', emoji: 'laptop' },
 ];
 const currentPath = Astro.url.pathname;
+
+// Stylesheets are served from public/ with a long cache, so tag them with
+// the build time to make browsers fetch fresh CSS after each deploy.
+const stylesheets = ['1.settings', '2.reset', '3.elements', '4.objects', '5.components'];
 ---
 <html lang="en">
 
@@ -22,11 +28,9 @@ const currentPath = Astro.url.pathname;
   <link rel="preconnect" href="https://fonts.bunny.net">
   <link href="https://fonts.bunny.net/css?family=atkinson-hyperlegible:400,400i,700" rel="stylesheet" />
 
-  <link rel="stylesheet" href="/assets/css/1.settings.css" />
-  <link rel="stylesheet" href="/assets/css/2.reset.css" />
-  <link rel="stylesheet" href="/assets/css/3.elements.css" />
-  <link rel="stylesheet" href="/assets/css/4.objects.css" />
-  <link rel="stylesheet" href="/assets/css/5.components.css" />
+  {stylesheets.map((name) => (
+    <link rel="stylesheet" href={`/assets/css/${name}.css?v=${buildVersion}`} />
+  ))}
 </head>
 
 <body>
