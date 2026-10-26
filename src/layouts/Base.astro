@@ -1,4 +1,8 @@
-<!DOCTYPE html>
+---
+// Markdown pages pass their frontmatter; other layouts pass props directly.
+const { heading, emoji } = Astro.props.frontmatter ?? Astro.props;
+const headingClass = emoji ? `u-heading-h2 u-emoji u-emoji--${emoji}` : 'u-heading-h2';
+---
 <html lang="en">
 
 <head>
@@ -11,11 +15,11 @@
   <link rel="preconnect" href="https://fonts.bunny.net">
   <link href="https://fonts.bunny.net/css?family=atkinson-hyperlegible:400,400i,700" rel="stylesheet" />
 
-  <link rel="stylesheet" href="assets/css/1.settings.css" />
-  <link rel="stylesheet" href="assets/css/2.reset.css" />
-  <link rel="stylesheet" href="assets/css/3.elements.css" />
-  <link rel="stylesheet" href="assets/css/4.objects.css" />
-  <link rel="stylesheet" href="assets/css/5.components.css" />
+  <link rel="stylesheet" href="/assets/css/1.settings.css" />
+  <link rel="stylesheet" href="/assets/css/2.reset.css" />
+  <link rel="stylesheet" href="/assets/css/3.elements.css" />
+  <link rel="stylesheet" href="/assets/css/4.objects.css" />
+  <link rel="stylesheet" href="/assets/css/5.components.css" />
 </head>
 
 <body>
@@ -37,7 +41,7 @@
             Uses
           </a>
         </li>
-        </ListInline>
+      </ul>
     </div>
 
     <div class="grid__title">
@@ -48,27 +52,18 @@
           </a>
         </p>
 
-        <h1 class="u-heading-h2 u-emoji u-emoji--wave">Hi. I’m a Technical Leader based in Birmingham, UK. I shape teams
-          that use tech to build awesome things that makes peoples lives better.</h1>
+        <h1 class={headingClass}>{heading}</h1>
       </header>
     </div>
 
     <div class="grid__aside">
       <div class="avatar">
-        <img src='/assets/images/avatar.png' alt="A picture of Steve Heyes with a nice brick wall in the background" />
+        <img src="/assets/images/avatar.png" alt="A picture of Steve Heyes with a nice brick wall in the background" />
       </div>
     </div>
 
     <div class="grid__main o-typography">
-      <p>I first started using <strong>web technology</strong> to help garage bands get their music heard by more
-        people. Since then I’ve had over a <strong>decade of experience</strong> and I’ve worked on some amazing
-        projects. You can read more about my experiences on the <a href="/about/">About page</a>.</p>
-      <p>I currently work at <strong>Howden Insurance</strong></a> as an Engineering Manager. You
-        can can find out more about what I’m up to on the <a href="/now/">Now page</a>.</p>
-      <p>In the hunt for <strong>self improvement</strong>, I am always curious about what <strong>tech</strong>,
-        <strong>tools</strong> and <strong>process</strong> teams use to help them <strong>work well</strong>. You can
-        see what I like to use on the <a href="/uses/">Uses page</a>.
-      </p>
+      <slot />
     </div>
 
     <div class="grid__footer">
