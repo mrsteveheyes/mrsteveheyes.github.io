@@ -5,4 +5,11 @@
   --primary: #02a9d0;
   --secondary: #e05e6b;
   --tertiary: #50b8a1;
+
+  /* Highlighter tints of primary and secondary. */
+  --highlight: #bdeaf5;
+  --highlight-soft: #fde2e5;
+
+  --ink-soft: #2c4a4d;
+  --ink-muted: #4b6366;
 }

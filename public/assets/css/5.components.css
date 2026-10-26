@@ -1,15 +1,42 @@
-a.u-huge {
-  background-size: 1px 8px;
-  background-repeat: repeat-x;
-  display: inline-block;
-  background-position: 0% 95%;
+.grid__nav {
+  font-size: 0.9rem;
+
+  /* Room for each link's emoji, which hangs to its left. */
+  .list-inline {
+    gap: 0.5rem 2.75rem;
+  }
+
+  a[aria-current="page"] {
+    background-size: 100% 100%;
+  }
 }
 
-.u-huge {
+.c-name {
+  margin-top: 5rem;
+  margin-bottom: 0;
+  font-size: clamp(2.6rem, 5vw, 4rem);
   font-weight: 700;
-  padding-bottom: 4px;
-  font-size: 4rem !important;
-  line-height: 1.11111 !important;
+  line-height: 1;
+  letter-spacing: -0.035em;
+
+  a {
+    background-position: 0 88%;
+    background-size: 100% 0.28em;
+
+    &:hover {
+      background-size: 100% 100%;
+    }
+  }
+}
+
+.c-intro {
+  margin: 2rem 0 3.5rem;
+  max-width: 30ch;
+  font-size: clamp(1.3rem, 2vw, 1.6rem);
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 0;
+  color: var(--ink-soft);
 }
 
 .u-emoji {
@@ -17,15 +44,31 @@ a.u-huge {
 }
 
 .u-emoji::before {
-  font-size: 1.5rem;
   position: absolute;
-  left: -36px;
+  left: -1.6em;
+  font-size: 1.1em;
+}
+
+/* Same size and line-height as the text, so it sits on the first line's baseline. */
+.c-intro.u-emoji::before {
+  top: 0;
+  left: -1.5em;
+  font-size: 1em;
 }
 
 .u-emoji--small::before {
-  font-size: 1rem;
-  left: -28px;
-  top: -4px;
+  left: -1.4em;
+  font-size: 1em;
+}
+
+/* No gutter on small screens, so put the emoji in line instead. */
+@media (max-width: 640px) {
+  .u-emoji:not(.u-emoji--small)::before,
+  .c-intro.u-emoji::before {
+    position: static;
+    margin-right: 0.3em;
+    font-size: 1em;
+  }
 }
 
 .u-emoji--wave::before {
@@ -34,7 +77,6 @@ a.u-huge {
 
 .u-emoji--handshake::before {
   content: "🤝";
-  top: -6px;
 }
 
 .u-emoji--man::before {
@@ -58,21 +100,22 @@ a.u-huge {
 }
 
 .avatar {
-  padding: 4px;
-  border: 4px solid #e8e1df;
-  border-radius: 300px;
-  max-width: 263px;
-  margin-right: 64px;
-  margin-bottom: 2em;
+  width: 64%;
+  max-width: 190px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 2rem;
 
   img {
     display: block;
     width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 }
 
-@media (min-width: 990px) {
-  .avatar {
-    margin-right: 0;
-  }
+.grid__footer {
+  margin-top: 4.5rem;
+  font-size: 0.85rem;
 }

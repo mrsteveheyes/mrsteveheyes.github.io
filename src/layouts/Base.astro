@@ -1,7 +1,14 @@
 ---
 // Markdown pages pass their frontmatter; other layouts pass props directly.
 const { heading, emoji } = Astro.props.frontmatter ?? Astro.props;
-const headingClass = emoji ? `u-heading-h2 u-emoji u-emoji--${emoji}` : 'u-heading-h2';
+const headingClass = emoji ? `c-intro u-emoji u-emoji--${emoji}` : 'c-intro';
+
+const navItems = [
+  { href: '/about/', label: 'About', emoji: 'man' },
+  { href: '/now/', label: 'Now', emoji: 'dart' },
+  { href: '/uses/', label: 'Uses', emoji: 'laptop' },
+];
+const currentPath = Astro.url.pathname;
 ---
 <html lang="en">
 
@@ -24,32 +31,20 @@ const headingClass = emoji ? `u-heading-h2 u-emoji u-emoji--${emoji}` : 'u-headi
 
 <body>
   <section class="grid">
-    <div class="grid__nav">
+    <nav class="grid__nav">
       <ul class="list-inline">
-        <li class="list_inline__item">
-          <a class="u-emoji u-emoji--small u-emoji--man" href="/about/">
-            About
-          </a>
-        </li>
-        <li class="list_inline__item">
-          <a class="u-emoji u-emoji--small u-emoji--dart" href="/now/">
-            Now
-          </a>
-        </li>
-        <li class="list_inline__item">
-          <a class="u-emoji u-emoji--small u-emoji--laptop" href="/uses/">
-            Uses
-          </a>
-        </li>
+        {navItems.map(({ href, label, emoji }) => (
+          <li class="list-inline__item">
+            <a class={`u-emoji u-emoji--small u-emoji--${emoji}`} href={href} aria-current={currentPath === href ? 'page' : undefined}>{label}</a>
+          </li>
+        ))}
       </ul>
-    </div>
+    </nav>
 
     <div class="grid__title">
       <header>
-        <p>
-          <a href="/" class="u-huge">
-            Steve Heyes
-          </a>
+        <p class="c-name">
+          <a href="/">Steve Heyes</a>
         </p>
 
         <h1 class={headingClass}>{heading}</h1>
@@ -67,10 +62,12 @@ const headingClass = emoji ? `u-heading-h2 u-emoji u-emoji--${emoji}` : 'u-headi
     </div>
 
     <div class="grid__footer">
-      <footer class="u-emoji u-emoji--handshake">
-        Find me on: <a href="https://keybase.io/mrsteveheyes">Keybase</a> /
-        <a href="https://github.com/mrsteveheyes">Github</a> /
-        <a href="https://www.linkedin.com/in/steveheyes/">LinkedIn</a>
+      <footer>
+        <ul class="list-inline list-inline--start">
+          <li class="list-inline__item"><a href="https://keybase.io/mrsteveheyes">Keybase</a></li>
+          <li class="list-inline__item"><a href="https://github.com/mrsteveheyes">GitHub</a></li>
+          <li class="list-inline__item"><a href="https://www.linkedin.com/in/steveheyes/">LinkedIn</a></li>
+        </ul>
       </footer>
     </div>
   </section>
