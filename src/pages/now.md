@@ -6,10 +6,10 @@ emoji: dart
 
 ## Currently working on
 
-- **Work**: I'm currently an Engineer Manager at Howden Insurance working with the Howden UI group.
-- **Health**: I am currently working on getting down to 12.5 stone (80kg). To do this I am *(still)* following [Slimming World](https://www.slimmingworld.co.uk/) using their online package, which is working surprisingly well.
-- **Fitness**: I'm currently trying out jump rope. The idea of a short and simple exercise routine sounds appealing.
-- **Community**: I run a monthly meetup for Engineering Managers and Technical Leaders called **ManageOps**. You can find out when our next meetup is on our [MeetUp page](https://meetup.com/manageops).
+- **Work**: I'm currently work as Team Lead (Product Engineering) at GoGlobal. This role somewhat stradles a usual Engineering Manager and Head of Engineering role. You can read more about this on the [About page](/about/).
+- **Health**: I am currently working on getting down to 12.5 stone (80kg). To do this I am *(still)* following [Slimming World](https://www.slimmingworld.co.uk/). This is not as easy as it sounds and things have got worse. Tips appreciated.
+- **Fitness**: I walk the dog. That's about it. 
+- **Community**: I run a meetup for Engineering Managers and Technical Leaders called **ManageOps**. You can find out when our next meetup is on our [website](https://manageops.co.uk).
 
 ## Always doing
 
@@ -19,9 +19,9 @@ emoji: dart
 ## Reading
 
 - **Non-fiction**:<br>
-  Sacred Fire - Ronald Rolheiser<br>
-  The Advantage - Patrick Lencioni
+  From Megachurch to Multiplication - Chris Galanos<br>
+  Confessions of a GP - Benjamin Daniels
 - **Fiction**:<br>
-  The Last Devil To Die - Richard Osman
+  _Nothing right now_
 
-<small>Last updated 28th Dec 2024 - Inspired by <a href="https://sivers.org/nowff">Derek Sivers</a></small>
+<small>Last updated 26th Oct 2026 - Inspired by <a href="https://sivers.org/nowff">Derek Sivers</a></small>

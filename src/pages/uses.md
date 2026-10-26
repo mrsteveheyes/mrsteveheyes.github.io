@@ -6,7 +6,7 @@ emoji: laptop
 
 ## What I used to build this site
 
-This site is pure HTML and CSS. Nothing more. It was previously built with [Gatsby](https://www.gatsbyjs.org/) but it got so out of date that updating it was a pain. So, the easiest way to get this rebuilt was with plain ol' HTML and CSS. And it was a joy. No build. No NPM installs. Just the platform
+This site is built with Astro. I want to start adding posts and an RSS feed and it was the easiest way to do it. Claude helped a lot.
 
 It’s hosted on [**Github Pages**](https://pages.github.com/) and the domain is with [**NameCheap**](https://www.namecheap.com/).
 
@@ -26,34 +26,26 @@ Again, I don’t write much PHP these days. That said it still holds a special p
 
 ## Software
 
+#### [Claude Code](https://claude.com/product/claude-code)
+
+Claude is my AI of choice. I've been using it in a terminal for a year or so but recently discovered how good the desktop app is. That's my main go to tool now.
+
 #### [Visual Studio Code](https://code.visualstudio.com/)
 
 I’ve been through all the IDE’s and text editors but now that I write multiple languages I find Code to be the best at the moment.
-The theme I use is [**Dracula**](https://draculatheme.com/visual-studio-code) with the [**Fira Code**](https://github.com/tonsky/FiraCode) typeface.
+The theme I use is [**Github Dark**](https://marketplace.visualstudio.com/items?itemName=GitHub.github-vscode-theme) with the [**Atkinson Hyperlegible Mono**](https://www.brailleinstitute.org/freefont/) typeface.
 
-#### [iTerm2](https://iterm2.com/)
+#### [Ghostty](https://ghostty.org/)
 
-This is terminal and has been for years. The design improvements in &gt;v3.3 are cracking. I use [**ZSH**](https://ohmyz.sh/) as my shell, with Dracula and Fira Code for the styling.
+I'm trying this out for a change. I used iTerm2 for years. I use [**ZSH**](https://ohmyz.sh/) as my shell, with Github Dark and Atkinson Hyperlegible Mono for the styling.
 
-#### [Arc](https://arc.net/)
+#### [Chrome](https://www.google.co.uk/chrome/)
 
-I've really enjoyed this new browser. It's playing with what makes a good browser, and so far it's doing a good job.
+I was using Dia, but most of what I do is on my work machine and we can't use agentic browsers. Chrome is _fine_.
 
-#### [Notion](https://www.notion.so/?r=58c42a64b9684beaa4c62acbfc6bb162)
-
-Now I'm a manager, most of my work is done here...
 
 #### [1Password](https://1password.com/)
 
 The nicest password manager I’ve used.
-
-## Utilities
-
-- [Flow](https://flowapp.info/)
-- [Caffeine](http://pghtheadsw.com/caffeine/)
-- [Magnet](https://magnet.crowdcafe.com/)
-- [Unsplash](https://apps.apple.com/gb/app/unsplash-wallpapers/id1284863847?mt=12)
-- [SelfControl](https://selfcontrolapp.com/)
-- [MeetingBar](https://apps.apple.com/gb/app/meetingbar-for-meet-zoom-co/id1532419400)
 
 <small>Shout out to [Wes Bos](https://wesbos.com/uses) for the idea of this page.</small>

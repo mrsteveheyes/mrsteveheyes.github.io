@@ -10,9 +10,15 @@ I believe that technologies purpose is to improve peoples’ lives, be that of a
 
 <h2 class="u-emoji u-emoji--laptop">Career</h2>
 
+### Team Lead (Product Engineering) - GoGlobal
+
+*Oct 2025 - current*
+
+This role is a mix of Engineering Manager activity with making the team is healthy, whole and happy while making sure they are working on the right thing, in the right way at the right time. It also has elements of a Head of Engineering role with setting long term strategy for the shape of the Engineering department.
+
 ### Engineering Manager - Howden Insurance
 
-*Oct 2024 - Current*
+*Oct 2024 - Oct 2025*
 
 Strategic leadership role managing two remote product teams with 8 direct reports ranging from Associate to Senior Engineers and QA Engineers. The teams are building .NET Blazor front end applications to reduce sales cycle time and digitising paper based processes.
 
