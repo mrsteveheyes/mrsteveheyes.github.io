@@ -35,7 +35,7 @@
 ## 6. Integration checks
 
 - [x] 6.1 Compare screenshots of `astro preview` against the task 1.1 baseline at 375px and 1280px for Home, About, Now and Uses. Verify there is no visible difference.
-- [ ] 6.2 After merging to `main`, confirm the workflow goes green, then smoke test the live custom domain: `/`, `/about/`, `/now/`, `/uses/`, `/beep/` and `/exercise/` return 200, the favicon loads, and `/openspec/config.yaml` and `/.claude/commands/opsx/apply.md` return 404.
+- [x] 6.2 After merging to `main`, confirm the workflow goes green, then smoke test the live custom domain: `/`, `/about/`, `/now/`, `/uses/`, `/beep/` and `/exercise/` return 200, the favicon loads, and `/openspec/config.yaml` and `/.claude/commands/opsx/apply.md` return 404.
 
 ## Workflow follow-up
 
