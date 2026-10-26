@@ -6,7 +6,7 @@ emoji: dart
 
 ## Currently working on
 
-- **Work**: I'm currently work as Team Lead (Product Engineering) at GoGlobal. This role somewhat stradles a usual Engineering Manager and Head of Engineering role. You can read more about this on the [About page](/about/).
+- **Work**: I currently work as Team Lead (Product Engineering) at GoGlobal. This role somewhat straddles a usual Engineering Manager and Head of Engineering role. You can read more about this on the [About page](/about/).
 - **Health**: I am currently working on getting down to 12.5 stone (80kg). To do this I am *(still)* following [Slimming World](https://www.slimmingworld.co.uk/). This is not as easy as it sounds and things have got worse. Tips appreciated.
 - **Fitness**: I walk the dog. That's about it. 
 - **Community**: I run a meetup for Engineering Managers and Technical Leaders called **ManageOps**. You can find out when our next meetup is on our [website](https://manageops.co.uk).
