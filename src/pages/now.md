@@ -19,9 +19,8 @@ emoji: dart
 ## Reading
 
 - **Non-fiction**:<br>
-  From Megachurch to Multiplication - Chris Galanos<br>
-  Confessions of a GP - Benjamin Daniels
+  From Megachurch to Multiplication - Chris Galanos
 - **Fiction**:<br>
-  _Nothing right now_
+  We Chase Shadows - Richard Osman
 
-<small>Last updated 26th Oct 2026 - Inspired by <a href="https://sivers.org/nowff">Derek Sivers</a></small>
+<small>Last updated 13th Nov 2026 - Inspired by <a href="https://sivers.org/nowff">Derek Sivers</a></small>
