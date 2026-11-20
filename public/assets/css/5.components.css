@@ -99,6 +99,10 @@
   content: "👨🏼‍🎓";
 }
 
+.u-emoji--postbox::before {
+  content: "📮";
+}
+
 .avatar {
   width: 64%;
   max-width: 190px;
@@ -118,4 +122,159 @@
 .grid__footer {
   margin-top: 4.5rem;
   font-size: 0.85rem;
+}
+
+.c-index {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--stone);
+}
+
+.c-index__row {
+  border-bottom: 1px solid var(--stone);
+}
+
+.c-index__link {
+  position: relative;
+  display: block;
+  padding: 1.25rem 0;
+  background: none;
+
+  &:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: -2px;
+  }
+}
+
+.c-index__date {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  white-space: nowrap;
+  transition: color 0.18s ease;
+}
+
+.c-index__link:hover .c-index__date {
+  color: var(--black);
+}
+
+.c-index__body {
+  min-width: 0;
+}
+
+/* On wider screens, hang the date in the left margin so its start lines up with
+   the page title. Each offset is the distance from .c-index's left edge back
+   to the title's left edge, expressed as a % of .c-index's own width. */
+@media (min-width: 641px) {
+  .c-index__date {
+    position: absolute;
+    top: 1.55rem;
+    left: -44.72%;
+    right: auto;
+    margin-bottom: 0;
+  }
+}
+
+@media (min-width: 990px) {
+  .c-index__date {
+    left: -30.9%;
+  }
+}
+
+.c-index__title {
+  margin: 0 0 0.25rem;
+  font-size: 1.1rem;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+
+/* Title picks up the standard link highlight when the row is hovered. */
+.c-index__title-text {
+  background: linear-gradient(var(--highlight), var(--highlight)) 0 100% / 100% 3px no-repeat;
+  transition: background-size 0.18s ease;
+}
+
+.c-index__link:hover .c-index__title-text {
+  background-size: 100% 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .c-index__title-text,
+  .c-index__date {
+    transition: none;
+  }
+}
+
+.c-index__description {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.45;
+  color: var(--ink-soft);
+}
+
+
+.c-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 3rem;
+  font-size: 0.9rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.c-pagination__pages {
+  display: flex;
+  gap: 0.25rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.c-pagination__page,
+.c-pagination__arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2rem;
+  height: 2rem;
+  padding: 0 0.4rem;
+}
+
+/* Number links inherit the site's default `a` highlight (3px line → full fill
+   on hover), painted across the 2rem box. */
+
+/* Current page is a <span>, so give it the hovered form of the gradient directly. */
+.c-pagination__page--current {
+  background: linear-gradient(var(--highlight), var(--highlight)) 0 100% / 100% 100% no-repeat;
+  font-weight: 700;
+}
+
+/* Arrows: no highlight line; just a muted colour that brightens on hover. */
+.c-pagination__arrow {
+  background: none;
+  color: var(--ink-soft);
+  transition: color 0.18s ease;
+}
+
+.c-pagination__arrow:hover {
+  color: var(--black);
+}
+
+.c-pagination__arrow--disabled {
+  color: var(--ink-muted);
+  opacity: 0.4;
+  cursor: default;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .c-pagination__arrow {
+    transition: none;
+  }
 }

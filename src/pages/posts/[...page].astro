@@ -1,0 +1,72 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths({ paginate }) {
+  const posts = (
+    await getCollection('posts', ({ data }) => import.meta.env.DEV || !data.draft)
+  ).sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+  return paginate(posts, { pageSize: 10 });
+}
+
+const { page } = Astro.props;
+
+const formatDate = (date) =>
+  date.toLocaleDateString('en-GB', {
+    day: '2-digit',
+    month: 'short',
+    year: 'numeric',
+    timeZone: 'UTC',
+  });
+
+const pageUrl = (n) => (n === 1 ? '/posts/' : `/posts/${n}/`);
+const pageNumbers = Array.from({ length: page.lastPage }, (_, i) => i + 1);
+---
+<Base heading="Posts." emoji="postbox">
+  {page.data.length === 0 ? (
+    <p>No posts yet. Check back soon.</p>
+  ) : (
+    <ul class="c-index">
+      {page.data.map((post) => (
+        <li class="c-index__row">
+          <a class="c-index__link" href={`/posts/${post.id}/`}>
+            <time class="c-index__date" datetime={post.data.date.toISOString().slice(0, 10)}>
+              {formatDate(post.data.date)}
+            </time>
+            <div class="c-index__body">
+              <h2 class="c-index__title"><span class="c-index__title-text">{post.data.title}</span></h2>
+              <p class="c-index__description">{post.data.description}</p>
+            </div>
+          </a>
+        </li>
+      ))}
+    </ul>
+  )}
+
+  {page.lastPage > 1 && (
+    <nav class="c-pagination" aria-label="Posts pagination">
+      {page.url.prev ? (
+        <a class="c-pagination__arrow" href={page.url.prev} aria-label="Newer posts">←</a>
+      ) : (
+        <span class="c-pagination__arrow c-pagination__arrow--disabled" aria-hidden="true">←</span>
+      )}
+      <ol class="c-pagination__pages">
+        {pageNumbers.map((n) => (
+          <li>
+            {n === page.currentPage ? (
+              <span class="c-pagination__page c-pagination__page--current" aria-current="page">{n}</span>
+            ) : (
+              <a class="c-pagination__page" href={pageUrl(n)}>{n}</a>
+            )}
+          </li>
+        ))}
+      </ol>
+      {page.url.next ? (
+        <a class="c-pagination__arrow" href={page.url.next} aria-label="Older posts">→</a>
+      ) : (
+        <span class="c-pagination__arrow c-pagination__arrow--disabled" aria-hidden="true">→</span>
+      )}
+    </nav>
+  )}
+</Base>

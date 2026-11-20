@@ -9,6 +9,7 @@ const navItems = [
   { href: '/about/', label: 'About', emoji: 'man' },
   { href: '/now/', label: 'Now', emoji: 'dart' },
   { href: '/uses/', label: 'Uses', emoji: 'laptop' },
+  { href: '/posts/', label: 'Posts', emoji: 'postbox' },
 ];
 const currentPath = Astro.url.pathname;
 
@@ -25,6 +26,7 @@ const stylesheets = ['1.settings', '2.reset', '3.elements', '4.objects', '5.comp
   <title>SteveHeyes.co.uk</title>
 
   <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
+  <link rel="alternate" type="application/rss+xml" title="Steve Heyes — Posts" href="/posts/rss.xml">
   <link rel="preconnect" href="https://fonts.bunny.net">
   <link href="https://fonts.bunny.net/css?family=atkinson-hyperlegible:400,400i,700" rel="stylesheet" />
 
