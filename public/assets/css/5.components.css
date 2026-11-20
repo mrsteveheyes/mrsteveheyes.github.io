@@ -167,22 +167,18 @@
   min-width: 0;
 }
 
-/* On wider screens, hang the date in the left margin so its start lines up with
-   the page title. Each offset is the distance from .c-index's left edge back
-   to the title's left edge, expressed as a % of .c-index's own width. */
-@media (min-width: 641px) {
+/* At the widest breakpoint only, hang the date in the left margin so its start
+   lines up with the page title. Below 990px the aside column (with the avatar)
+   sits where the margin date would go, so we stack it above the title instead.
+   The -30.9% offset is the distance from .c-index's left edge back to the
+   title's left edge, as a % of .c-index's own width. */
+@media (min-width: 990px) {
   .c-index__date {
     position: absolute;
     top: 1.55rem;
-    left: -44.72%;
+    left: -30.9%;
     right: auto;
     margin-bottom: 0;
-  }
-}
-
-@media (min-width: 990px) {
-  .c-index__date {
-    left: -30.9%;
   }
 }
 

@@ -12,6 +12,9 @@ const navItems = [
   { href: '/posts/', label: 'Posts', emoji: 'postbox' },
 ];
 const currentPath = Astro.url.pathname;
+// A nav item is active for its own page and any page beneath it, so e.g.
+// /posts/ lights up on /posts/<slug>/ and /posts/2/ too.
+const isCurrent = (href) => currentPath === href || currentPath.startsWith(href);
 
 // Stylesheets are served from public/ with a long cache, so tag them with
 // the build time to make browsers fetch fresh CSS after each deploy.
@@ -41,7 +44,7 @@ const stylesheets = ['1.settings', '2.reset', '3.elements', '4.objects', '5.comp
       <ul class="list-inline">
         {navItems.map(({ href, label, emoji }) => (
           <li class="list-inline__item">
-            <a class={`u-emoji u-emoji--small u-emoji--${emoji}`} href={href} aria-current={currentPath === href ? 'page' : undefined}>{label}</a>
+            <a class={`u-emoji u-emoji--small u-emoji--${emoji}`} href={href} aria-current={isCurrent(href) ? 'page' : undefined}>{label}</a>
           </li>
         ))}
       </ul>
