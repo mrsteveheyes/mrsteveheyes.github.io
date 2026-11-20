@@ -9,8 +9,21 @@ const formattedDate = date.toLocaleDateString('en-GB', {
   year: 'numeric',
   timeZone: 'UTC',
 });
+const machineDate = date.toISOString().slice(0, 10);
 ---
-<Base heading={title}>
-  <p><time datetime={date.toISOString().slice(0, 10)}>{formattedDate}</time></p>
+<Base heading="Posts." emoji="postbox">
+  <h1 class="c-post__title">{title}</h1>
+  <p class="c-post__date">
+    <time datetime={machineDate}>{formattedDate}</time>
+  </p>
+
   <slot />
+
+  <footer class="c-post__end">
+    <p>
+      <a href="/posts/"><span aria-hidden="true">←</span> Back to posts</a>
+      <span class="c-post__end-sep" aria-hidden="true">·</span>
+      <a href="/posts/rss.xml">Subscribe via RSS</a>
+    </p>
+  </footer>
 </Base>

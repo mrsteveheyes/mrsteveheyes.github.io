@@ -53,7 +53,7 @@ const stylesheets = ['1.settings', '2.reset', '3.elements', '4.objects', '5.comp
           <a href="/">Steve Heyes</a>
         </p>
 
-        <h1 class={headingClass}>{heading}</h1>
+        {heading && <h1 class={headingClass}>{heading}</h1>}
       </header>
     </div>
 
